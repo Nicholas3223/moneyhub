@@ -26,6 +26,11 @@ export const InfoText = styled.div`
   color: ${(props) => props.theme.colors.neutral[600]};
 `;
 
+export const AccountInfoText = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const AccountSection = styled.div`
   padding: ${(props) => props.theme.space.m} 0;
 
@@ -36,8 +41,6 @@ export const AccountSection = styled.div`
 `;
 
 export const AccountListItem = styled.div`
-  display: flex;
-
   &:not(:last-of-type) {
     margin-bottom: ${(props) => props.theme.space.m};
   }
