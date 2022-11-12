@@ -24,6 +24,9 @@ export const InfoText = styled.div`
   line-height: 1.6;
   font-size: ${(props) => props.theme.typography.m.fontSize};
   color: ${(props) => props.theme.colors.neutral[600]};
+  @media (max-width: 480px) {
+    font-size: ${(props) => props.theme.typography.s.fontSize};
+  }
 `;
 
 export const AccountInfoText = styled.div`
@@ -38,6 +41,19 @@ export const AccountSection = styled.div`
     border-bottom: 1px solid ${(props) => props.theme.colors.neutral[200]};
   }
 }
+`;
+
+export const ValuationResults = styled.div`
+  background-color: ${(props) => props.theme.colors.secondary.light};
+  border-radius: 15px;
+  padding: 0 20px 0 20px;
+  color: ${(props) => props.theme.colors.secondary.dark};
+  @media (max-width: 480px) {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    font-size: ${(props) => props.theme.typography.s.fontSize};
+  }
 `;
 
 export const AccountListItem = styled.div`
