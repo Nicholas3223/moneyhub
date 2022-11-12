@@ -3,11 +3,13 @@ import { add, format } from "date-fns";
 import React from "react";
 import { Button } from "../../components/button";
 import AccountContainer from "../../components/account-container";
+import { yearsSincePurchase, purchaseDate } from "./utils/yearsSincePurchase";
 import {
   AccountInfoText,
   AccountListItem,
   InfoText,
-  Inset
+  Inset,
+  ValuationResults,
 } from "./style";
 
 const Detail = ({ account }) => {
@@ -17,6 +19,10 @@ const Detail = ({ account }) => {
   if (account.associatedMortgages.length) {
     mortgage = account.associatedMortgages[0];
   }
+
+  const sincePurchase = account.recentValuation.amount - account.originalPurchasePrice;
+  const sincePurchasePercentage = sincePurchase / account.originalPurchasePrice * 100;
+  const annualAppreciation = `${sincePurchasePercentage / yearsSincePurchase(account.originalPurchasePriceDate)}%`;
 
   return (
     <Inset>
@@ -42,16 +48,18 @@ const Detail = ({ account }) => {
         <AccountListItem><InfoText>{account.postcode}</InfoText></AccountListItem>
       </AccountContainer>
       <AccountContainer title="Valuation change">
-        <AccountListItem><InfoText>Purchased for <strong>£92000</strong> in July 2002</InfoText></AccountListItem>
+        <AccountListItem>
+          <InfoText>Purchased for <strong>£{account.originalPurchasePrice}</strong>{purchaseDate(account.originalPurchasePriceDate)}</InfoText>
+        </AccountListItem>
         <AccountListItem>
           <AccountInfoText>
             <InfoText>Since purchase</InfoText>
-            <InfoText>£202883 (220.5%)</InfoText>
+            <ValuationResults>£{sincePurchase} {`(${sincePurchasePercentage}%)`}</ValuationResults>
           </AccountInfoText>
         </AccountListItem>
         <AccountInfoText>
           <InfoText>Annual appreciation</InfoText>
-          <InfoText>13.4%</InfoText>
+          <ValuationResults>{annualAppreciation}</ValuationResults>
         </AccountInfoText>
       </AccountContainer>
       {mortgage && (
@@ -70,7 +78,6 @@ const Detail = ({ account }) => {
         </AccountContainer>
       )}
       <Button
-        // This is a dummy action
         onClick={() => alert("You have navigated to the edit account page")}
       >
         Edit account
