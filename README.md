@@ -6,7 +6,9 @@ Making the design responsive the ValuationResults change their width to be unifo
 
 The RowContainer component was not used in the end because the display:flex; property was interfering with the Valuation changes layout. I had originally deleted some of the CSS properties but I was not sure if that was what the task required so I just used the AccountList component instead. I had originally changed the css properties of the RowContainer but saw the comment at the top saying this component shouldn’t be altered.
 
-If I had more time I would have fixed the sidebar as when it is in laptop view it doesn’t extend all the way to the bottom of the screen. Also I would have liked to add some unit tests for the components as I have only unit tested the util functions in modules/property-details/utils. 
+If I had more time I would have fixed the sidebar as when it is in laptop view it doesn’t extend all the way to the bottom of the screen. Also I would have liked to add some unit tests for the components as I have only unit tested the util functions in modules/property-details/utils.
+
+The ValuationResults component used the colours that were used in the design mocks. I would have maybe looked at the colours from the Edit Account button and how they fit in with the colours in the ValuationResults. I know that the components used in the Input component could have been used in a more modular way with some more reusable components but I ran out of time.
 
 The styled-components library was nice to use. I had not had any experience with it before and found it quite a simple and instinctive way to create little components.
 
