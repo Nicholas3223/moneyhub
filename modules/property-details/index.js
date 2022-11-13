@@ -3,7 +3,7 @@ import { add, format } from "date-fns";
 import React from "react";
 import { Button } from "../../components/button";
 import AccountContainer from "../../components/account-container";
-import { yearsSincePurchase, purchaseDate } from "./utils/yearsSincePurchase";
+import { yearsSincePurchase, purchaseDate } from "./utils/property-details-utils";
 import {
   AccountInfoText,
   AccountListItem,
